@@ -5,7 +5,7 @@ const Category = {
     CUSTOM: 3,
 }
 
-class Budget {
+class MonthlyBudget {
     constructor(food, utilities, entertainment, custom) {
         this.food = food;
         this.utilities = utilities;
@@ -14,7 +14,7 @@ class Budget {
     }
 
     budgetTotal() {
-        return sum(this.food, this.utilities, this.entertainment, this.custom);
+        return this.food + this.utilities + this.entertainment + this.custom;
     }
 }
 
@@ -35,28 +35,44 @@ function add(time, value, type, name) {
 
 function total() {
     var totalSpent = 0;
-    for(e in expenses) {
-        totalSpent += e.value;
-    }
+    expenses.forEach(data => {
+        totalSpent += data.value;
+    })
     return totalSpent;
 }
 
 function typeTotal(type) {
     var totalSpent = 0;
-    for(e in expenses) {
-        if(e.type == type) {
-            totalSpent += e.value;
+    expenses.forEach(data => {
+        if(data.type == type) {
+            totalSpent += data.value;
         }
-    }
+    })
     return totalSpent;
 }
 
-function timeTotal(start, stop) {
+function monthlyTypeTotal(type) {
+    var date = new Date();
+    var month = date.getMonth();
     var totalSpent = 0;
-    for(e in expenses) {
-        if(e.time >= start && e.time <= stop) {
-            totalSpent += e.value;
+    expenses.forEach(data => {
+        var d = new Date(data.time);
+        if(d.getMonth() == month && data.type == type) {
+            totalSpent += data.value;
         }
-    }
+    })
+    return totalSpent;
+}
+
+function monthlyTotal() {
+    var date = new Date();
+    var month = date.getMonth();
+    var totalSpent = 0;
+    expenses.forEach(data => {
+        var d = new Date(data.time);
+        if(d.getMonth() == month) {
+            totalSpent += data.value;
+        }
+    })
     return totalSpent;
 }
