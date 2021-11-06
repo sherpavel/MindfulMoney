@@ -7,26 +7,52 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
     <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/expenses.css">
+    <link rel="stylesheet" href="style/form.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="./script/budget.js"></script>
     <script src="./script/main.js"></script>
 
-    <title>Finapp</title>
+    <title>Mindful Money</title>
 </head>
 <body>
-    <section id="total">
-        <h1>Total</h1>
-        <div id=""></div>
-    </section>
+    <div id="main">
+        <section id="total">
+            <h1>Total <span id="periodText">daily</span> expenses</h1>
+            <div id=""></div>
+        </section>
+    
+        <section id="chart">
+            <h1>Chart</h1>
+        </section>
+    
+        <section id="list">
+            <div id="add_exp">
+                <div id="add_btn">
+                    <img src="./resources/add_icon.svg" alt="New">
+                </div>
+            </div>
+            <h1>All expenses</h1>
+            <div id="expList"></div>
+        </section>
+    </div>
 
-    <section id="chart">
-        <h1>Chart</h1>
-    </section>
-
-    <section id="list">
-        <h1><span id="listTitle">Daily</span> expenses</h1>
-        <div id="expList"></div>
-    </section>
+    <div id="overlay">
+        <div id="form">
+            <h2>Add new item</h2>
+            <img src="resources/close_icon.svg" alt="X" id="close_form_btn">
+            <input type="text" id="exp_name_input" placeholder="name">
+            <input type="number" id="exp_value_input" placeholder="$0">
+            <select name="type" id="exp_type_input">
+                <option disabled selected value>Select type</option>
+                <option value="food">Food</option>
+                <option value="utility">Utility</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="other">Other</option>
+            </select>
+            <div id="submit_exp_btn">Add</div>
+        </div>
+    </div>
 </body>
 </html>

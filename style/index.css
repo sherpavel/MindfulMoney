@@ -8,7 +8,7 @@
 
     --mono-dark-color: #2f2f45;
 
-    --radius: 10px;
+    --radius: 0.8rem;
 }
 
 html {
@@ -30,25 +30,35 @@ body {
     -ms-user-select: none;
 }
 
+#main {
+    transition: all 0.3s;
+    filter: opacity(1);
+}
+#main.blur {
+    filter:opacity(0.2)
+}
+
 section {
     position: relative;
     max-width: 800px;
     left: 50%;
     transform: translateX(-50%);
     padding-top: 20px;
-    box-shadow: 0 0 10px 0px var(--dark-color);
+    box-shadow: 0 0 10px -2px var(--dark-color);
 
     background-color: var(--dark-color);
 
-    border-radius: 1rem;
+    border-radius: var(--radius);
 
     margin: 1em 0 1em 0;
     padding: 1rem;
 }
 section > h1 {
     text-align: left;
+    margin: 0 0 1rem 0;
 }
 
-.expense {
-    
+#list {
+    min-height: 100px;
+    /* border-radius: var(--radius) 50px var(--radius) var(--radius); */
 }
