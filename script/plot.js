@@ -1,10 +1,8 @@
-import {timeTypeTotal} from "./budget";
-
-timeTypeTotal()
+import {typeTotal} from "./budget";
 
 var data = [{
-    values: [19, 26, 55],
-    labels: ['Food', 'Utilities', 'Entertainment', 'CUSTOM'],
+    values: [typeTotal(CATEGORY.FOOD),typeTotal(CATEGORY.UTILITIES),typeTotal(CATEGORY.ENTERTAINMENT),typeTotal(CATEGORY.CUSTOM)],
+    labels: ['Food', 'Utilities', 'Entertainment', 'Custom'],
     type: 'pie'
 }];
   
