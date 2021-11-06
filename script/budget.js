@@ -6,16 +6,17 @@ const Category = {
 }
 
 class Expense {
-    constructor(time, value, type) {
+    constructor(time, value, type, name) {
         this.time = time;
         this.value = value;
         this.type = type;
+        this.name = name;
     }
 }
 let expenses = [];
 
-function add(time, value, type) {
-    expenses.push(new Expense(time, value, type));
+function add(time, value, type, name) {
+    expenses.push(new Expense(time, value, type, name));
 }
 
 function total() {

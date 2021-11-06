@@ -4,11 +4,6 @@ window.onresize = () => {
     isMobile = document.body.clientWidth < 700;
 }
 
-window.onload = () => {
-    isMobile = document.body.clientWidth < 700;
-    main();
-}
-
 
 const PERIOD = {
     DAY: 0,
@@ -17,10 +12,22 @@ const PERIOD = {
 }
 let CRT_PERIOD = PERIOD.DAY;
 
+let expRoot;
+window.onload = () => {
+    isMobile = document.body.clientWidth < 700;
+    expRoot = $("#expList");
+    main();
+}
 function main() {
     let testArray = [
-        new Food(), new Food()
+        new Expense(Date.now(), 100, Category.FOOD),
+        new Expense(Date.now() - 10000, 400, Category.ENTERTAINMENT),
+        new Expense(Date.now() + 20000, 10, Category.CUSTOM),
     ];
+
+    testArray.forEach(exp => {
+        showExpense(exp);
+    });
 }
 
 function setPeriod(period) {
@@ -40,12 +47,11 @@ function setPeriod(period) {
     }
 }
 
-function showExpense(obj) {
-    let JExpense = $("<div>");
 
-    let icon = $("img");
+function showExpense(exp) {
+    let JExpense = $("<div>").addClass("expense");
 
-
+    expRoot.append(JExpense);
 
     return JExpense;
 }
