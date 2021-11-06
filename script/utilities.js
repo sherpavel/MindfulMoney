@@ -2,6 +2,7 @@ function calculateReport () {
     arraySpending = [typeTotal(Category.FOOD), typeTotal(Category.UTILITIES), typeTotal(Category.ENTERTAINMENT), typeTotal(Category.CUSTOM)];
     totalSpent = total();
     average = totalSpent/4;
+    
     return totalSpent, min.array, max.array, average;
 }
 
@@ -15,13 +16,21 @@ function userGuessAmount (totalSpent,maxCategory, minCategory, average, budget){
     } else {
         if(totalSpent = budget.budgetTotal()){
             print("You actually spent this much: " + totalSpent)
+            print("You spent the most in this category " + maxCategory + "Try spending less in this category!")
+            print("You spent the least in this category "+ minCategory)
+            print("Here is the average amount spent so far. " + average)
         }
         else if(totalSpent > budget.budgetTotal()){
             print("Yikes! You went over budget. Try watching your spending in this category: " + maxCategory)
-
+            print("You spent the most in this category " + maxCategory + "Try spending less in this category!")
+            print("You spent the least in this category "+ minCategory)
+            print("Here is the average amount spent so far. " + average)
         }
         else{
             print("Yay! You've spent less than expected. Treat yourself!")
+            print("You spent the most in this category " + maxCategory + "Try spending less in this category!")
+            print("You spent the least in this category "+ minCategory)
+            print("Here is the average amount spent so far. " + average)
         }
     }
 }
