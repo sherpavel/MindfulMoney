@@ -9,20 +9,15 @@ window.onload = () => {
     main();
 }
 
-const EXPENSES_TYPE = {
-    FOOD: 0,
-    UTILITY: 1,
-    ENT: 2,
-    CUSTOM: 3,
-}
-
 function main() {
     let testArray = {
 
     };
 
 
-    let f = Food.amountData.add(0);
+    let f = new Food();
+    f.amountData.add(10);
+    console.log(f);
 }
 
 const PERIOD = {

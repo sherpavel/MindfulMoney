@@ -27,8 +27,10 @@ class AmountData {
     }
 }
 
-const Food = {
-    amountData: new AmountData,
-    budget: 0,
-    category: Category.FOOD,
+class Food {
+    constructor() {
+        this.amountData = new AmountData();
+        this.budget = 0;
+        this.category = Category.FOOD;
+    }
 }
