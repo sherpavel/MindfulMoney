@@ -5,7 +5,7 @@ const CATEGORY = {
     CUSTOM: 3,
 }
 
-class MonthlyBudget {
+class Budget {
     constructor(food, utilities, entertainment, custom) {
         this.food = food;
         this.utilities = utilities;
@@ -92,10 +92,4 @@ function timeTotal(period) {
         }
     })
     return totalSpent;
-}
-
-const PERIOD = {
-    DAY: 0,
-    WEEK: 1,
-    MONTH: 2
 }
