@@ -21,7 +21,7 @@ function userGuessAmount (totalSpent,maxCategory, minCategory, average, budget){
         else{ // if they spent less than their budget
             print("Yay! You've spent less than expected. Treat yourself!")
         }
-    }
+    }// summary statistics below
     print("You spent the most in this category " + maxCategory + "Try spending less in this category!")
     print("You spent the least in this category "+ minCategory)
     print("Here is the average amount spent so far. " + average)
