@@ -1,5 +1,3 @@
-import {PERIOD} from "./main";
-
 const CATEGORY = {
     FOOD: 0,
     UTILITIES: 1,
@@ -43,7 +41,7 @@ function total() {
     return totalSpent;
 }
 
-export function typeTotal(type) {
+function typeTotal(type) {
     var totalSpent = 0;
     expenses.forEach(data => {
         if(data.type == type) {

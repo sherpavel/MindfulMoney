@@ -4,6 +4,11 @@ window.onresize = () => {
     isMobile = document.body.clientWidth < 700;
 }
 
+const PERIOD = {
+    DAY: 0,
+    WEEK: 1,
+    MONTH: 2
+}
 let CRT_PERIOD = PERIOD.DAY;
 
 let expRoot;
