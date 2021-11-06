@@ -13,6 +13,7 @@ class Expense {
         this.name = name;
     }
 }
+
 let expenses = [];
 
 function add(time, value, type, name) {
@@ -20,13 +21,29 @@ function add(time, value, type, name) {
 }
 
 function total() {
-        
+    var totalSpent = 0;
+    for(e in expenses) {
+        totalSpent += e.value;
+    }
+    return totalSpent;
 }
 
-function weeklyTotal() {
-
+function typeTotal(type) {
+    var totalSpent = 0;
+    for(e in expenses) {
+        if(e.type == type) {
+            totalSpent += e.value;
+        }
+    }
+    return totalSpent;
 }
 
-function monthlyTotal() {
-    
+function timeTotal(start, stop) {
+    var totalSpent = 0;
+    for(e in expenses) {
+        if(e.time >= start && e.time <= stop) {
+            totalSpent += e.value;
+        }
+    }
+    return totalSpent;
 }
