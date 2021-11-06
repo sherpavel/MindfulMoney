@@ -1,13 +1,13 @@
 function calculateReport () {
-    arraySpending = [typeTotal(Category.FOOD), typeTotal(Category.UTILITIES), typeTotal(Category.ENTERTAINMENT), typeTotal(Category.CUSTOM)];
-    totalSpent = total();
-    average = totalSpent/4;
+    var arraySpending = [typeTotal(Category.FOOD), typeTotal(Category.UTILITIES), typeTotal(Category.ENTERTAINMENT), typeTotal(Category.CUSTOM)];
+    var totalSpent = total();
+    var average = totalSpent/4;
     
     return totalSpent, min.array, max.array, average;
 }
 
 function userGuessAmount (totalSpent,maxCategory, minCategory, average, budget){
-    userGuess = prompt("Guess how much you spent this month!") // this will implement some sort of get user input, can take it out if needed
+    var userGuess = prompt("Guess how much you spent this month!") // this will implement some sort of get user input, can take it out if needed
     if (userGuess == totalSpent){ // user guesses the amount they spent correctly
         print("Congratulations! You've guessed correctly. Here is a summary of all the money you spent so far.")
         print("You spent the most in this category " + maxCategory + "Try spending less in this category!")
