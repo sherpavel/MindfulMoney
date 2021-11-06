@@ -8,10 +8,10 @@ function calculateReport () {
 function userGuessAmount (totalSpent,maxCategory, minCategory, average, budget){
     userGuess = prompt("Guess how much you spent this month!") // this will implement some sort of get user input, can take it out if needed
     if (userGuess == totalSpent){
-        print("Congratulations! You've guessed correctly. Here is a summary of all the money you spent this month.")
+        print("Congratulations! You've guessed correctly. Here is a summary of all the money you spent so far.")
         print("You spent the most in this category " + maxCategory + "Try spending less in this category!")
         print("You spent the least in this category "+ minCategory)
-        print("Here is the average amount spent this month. " + average)
+        print("Here is the average amount spent so far. " + average)
     } else {
         if(totalSpent = budget.budgetTotal()){
             print("You actually spent this much: " + totalSpent)
