@@ -5,6 +5,19 @@ const Category = {
     CUSTOM: 3,
 }
 
+class Budget {
+    constructor(food, utilities, entertainment, custom) {
+        this.food = food;
+        this.utilities = utilities;
+        this.entertainment = entertainment;
+        this.custom = custom;
+    }
+
+    budgetTotal() {
+        return sum(this.food, this.utilities, this.entertainment, this.custom);
+    }
+}
+
 class Expense {
     constructor(time, value, type, name) {
         this.time = time;
