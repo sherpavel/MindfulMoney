@@ -18,6 +18,9 @@
 </head>
 <body>
     <div id="main">
+        <div id="logo">
+            <img src="resources/Website_Logo.png" alt="">
+        </div>
         <section id="total">
             <h1>Total <span id="periodText">daily</span> expenses</h1>
             <div id=""></div>
@@ -28,14 +31,15 @@
         </section>
     
         <section id="list">
-            <div id="add_exp">
-                <div id="add_btn">
-                    <img src="./resources/add_icon.svg" alt="New">
-                </div>
-            </div>
             <h1>All expenses</h1>
             <div id="expList"></div>
         </section>
+    </div>
+
+    <div id="add_exp">
+        <div id="add_btn">
+            <img src="./resources/add_icon.svg" alt="New">
+        </div>
     </div>
 
     <div id="overlay">
@@ -46,10 +50,10 @@
             <input type="number" id="exp_value_input" placeholder="$0">
             <select name="type" id="exp_type_input">
                 <option disabled selected value>Select type</option>
-                <option value="food">Food</option>
-                <option value="utility">Utility</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="other">Other</option>
+                <option value=0>Food</option>
+                <option value=1>Utility</option>
+                <option value=2>Entertainment</option>
+                <option value=3>Other</option>
             </select>
             <div id="submit_exp_btn">Add</div>
         </div>

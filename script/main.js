@@ -4,16 +4,24 @@ window.onresize = () => {
     isMobile = document.body.clientWidth < 700;
 }
 
-
-const PERIOD = {
-    DAY: 0,
-    WEEK: 1,
-    MONTH: 2
-}
 let CRT_PERIOD = PERIOD.DAY;
 
 let expRoot;
 let showAddForm = false;
+let EXP_ARRAY = [
+    new Expense(Date.now(), 100, CATEGORY.FOOD, "qwe"),
+    new Expense(Date.now()-1000000000, 200, CATEGORY.UTILITIES, "asd"),
+    new Expense(Date.now()-10000000000, 300, CATEGORY.ENTERTAINMENT, "zxc"),
+    new Expense(Date.now()-10000000000, 300, CATEGORY.CUSTOM, "ghj"),
+    new Expense(Date.now(), 100, CATEGORY.FOOD, "qwe"),
+    new Expense(Date.now()-1000000000, 200, CATEGORY.UTILITIES, "asd"),
+    new Expense(Date.now()-10000000000, 300, CATEGORY.ENTERTAINMENT, "zxc"),
+    new Expense(Date.now()-10000000000, 300, CATEGORY.CUSTOM, "ghj"),
+    new Expense(Date.now(), 100, CATEGORY.FOOD, "qwe"),
+    new Expense(Date.now()-1000000000, 200, CATEGORY.UTILITIES, "asd"),
+    new Expense(Date.now()-10000000000, 300, CATEGORY.ENTERTAINMENT, "zxc"),
+    new Expense(Date.now()-10000000000, 300, CATEGORY.CUSTOM, "ghj"),
+];
 window.onload = () => {
     isMobile = document.body.clientWidth < 700;
     expRoot = $("#expList");
@@ -24,11 +32,13 @@ window.onload = () => {
         $("#main").addClass("blur");
         $("#overlay").addClass("show");
     });
-
-    $(close_form_btn).on("click", () => {
+    function closeForm() {
         showAddForm = false;
         $("#main").removeClass("blur");
         $("#overlay").removeClass("show");
+    }
+    $(close_form_btn).on("click", () => {
+        closeForm();
     });
 
 
@@ -36,29 +46,24 @@ window.onload = () => {
     $("#submit_exp_btn").on("click", () => {
         let name = $("#exp_name_input").val();
         let value = parseFloat($("#exp_value_input").val());
-        let type = $("#exp_type_input").val();
-        if ((name && value && type) && checkInput(name, 1, 10)) {
-            
+        let type = parseInt($("#exp_type_input").val());
+        if (checkInput(name, 1, 10)) {
+            EXP_ARRAY.push(new Expense(Date.now(), value, type, name));
+            reBuildList();
+            closeForm();
         } else {
+            console.log("error");
         }
     });
-    
-    // REMOVE
-    $("#add_btn").click();
 
-    // test
-    let testArray = [
-        new Expense(Date.now(), 100, Category.FOOD, "Spicy 9"),
-        new Expense(Date.now() - 10000000000, 400, Category.ENTERTAINMENT, "Netflix"),
-        new Expense(Date.now() - 8000000000, 10, Category.CUSTOM, "idk"),
-        new Expense(Date.now() - 1000000000, 50, Category.UTILITIES, "Bills")
-    ];
-
-    testArray.sort((a, b) => {
+    reBuildList();
+}
+function reBuildList() {
+    $(".expense").remove();
+    EXP_ARRAY.sort((a, b) => {
         return b.time - a.time;
     });
-
-    testArray.forEach(exp => {
+    EXP_ARRAY.forEach(exp => {
         showExpense(exp);
     });
 }
@@ -88,28 +93,35 @@ function showExpense(exp) {
 
     let icon = "";
     switch (exp.type) {
-        case Category.FOOD:
-            icon = "food_icon.svg";
+        case CATEGORY.FOOD:
+            icon = "Categories_Food_icon.svg";
             break;
-        case Category.ENTERTAINMENT:
-            icon = "entertainment_icon.svg";
+        case CATEGORY.ENTERTAINMENT:
+            icon = "Categories_Entertainment_Icon.svg";
             break;
-        case Category.UTILITIES:
-            icon = "utility_icon.svg";
+        case CATEGORY.UTILITIES:
+            icon = "Categories_Utility_icon.svg";
             break;
-        case Category.CUSTOM:
-            icon = "other_icon.svg";
+        case CATEGORY.CUSTOM:
+            icon = "Categories_other_Icon.svg";
             break;
     }
-    JExpense.append($(`<img src="${resPath+icon}" alt="">`));
+    JExpense.append($(`<div class="type_ico"><img src="${resPath+icon}" alt=""></div>`));
 
     let textBox = $("<div>").addClass("exp_textbox");
-    textBox.append($("<p>").addClass("exp_text").text(exp.name + " ... $" + exp.value));
+    textBox.append($("<span>").addClass("exp_text").text(exp.name));
+    textBox.append($("<span>").addClass("exp_text").text("$" + exp.value));
 
     let date = new Date(exp.time);
     textBox.append($("<p>").addClass("exp_text exp_date").text(date.getMonth() + "/" + date.getDay() + "/" + date.getFullYear()));
-
     JExpense.append(textBox);
+
+    let delBtn = $(`<div class="delete_ico"><img src="${resPath+"Delete_Icon.svg"}" alt="X"></div>`);
+    delBtn.on("click", () => {
+        EXP_ARRAY.splice(EXP_ARRAY.indexOf(exp), 1);
+        reBuildList();
+    });
+    JExpense.append(delBtn);
 
     expRoot.append(JExpense);
 

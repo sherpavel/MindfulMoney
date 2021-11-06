@@ -1,3 +1,7 @@
+#expList {
+    width: 100%;
+}
+
 .expense {
     display: flex;
     flex-direction: row;
@@ -6,12 +10,14 @@
     gap: 10px;
 }
 
-.expense > img {
+.expense > .type_ico {
     flex-basis: 55px;
+    filter: brightness(0.9);
+}
+.expense img {
     width: 100%;
     height: 100%;
 }
-
 .expense > .exp_textbox {
     display: flex;
     flex-direction: column;
@@ -20,30 +26,37 @@
     display: inline-block;
     margin: 0;
 }
-
-/* .expense > .exp_textbox > .exp_text {
-    display: inline-block;
-} */
 .expense > .exp_textbox > .exp_date {
     color: var(--hint-color);
+}
+.expense > .delete_ico {
+    margin-left: auto;
+    flex-basis: 40px;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+.expense > .delete_ico > img {
+    filter: saturate(1.2);
+}
+.expense > .delete_ico:hover {
+    background-color: var(--dark-grey-color);
 }
 
 /* Add expenses */
 #add_exp {
-    position: absolute;
-    top: 0;
-    right: 0;
-    /* padding: 0rem; */
+    position: fixed;
+    bottom: 2%;
+    left: 50%;
 }
 #add_btn {
     width: 80px;
     height: 80px;
     background-color: var(--mid-color);
     padding: 10px;
-    border-radius: 0 var(--radius) 0 var(--radius);
+    border-radius: var(--radius) 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    /* box-shadow: 0 0 10px -2px var(--dark-color); */
+    box-shadow: 0 0 10px -2px var(--dark-color);
 }
 
 #add_btn > img {

@@ -4,10 +4,11 @@
 	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:7;stroke-miterlimit:10;}
+	.st1{stroke:#000000;stroke-width:7;stroke-miterlimit:10;}
 </style>
 <path class="st0" d="M425,113.89v272.22c0,21.47-17.41,38.89-38.89,38.89H113.89C92.41,425,75,407.59,75,386.11V113.89
 	C75,92.41,92.41,75,113.89,75h272.22C407.59,75,425,92.41,425,113.89z"/>
-<circle class="st0" cx="250" cy="250" r="25"/>
-<circle class="st0" cx="360" cy="250" r="25"/>
-<circle class="st0" cx="140" cy="250" r="25"/>
+<circle class="st1" cx="250" cy="250" r="20"/>
+<circle class="st1" cx="360" cy="250" r="20"/>
+<circle class="st1" cx="140" cy="250" r="20"/>
 </svg>

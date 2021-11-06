@@ -39,8 +39,29 @@
     cursor: pointer;
 }
 #form > input {
-    font-size: 18px;
+    font-size: 20px;
+    background-color: var(--dark-color);
+    color: var(--bright-color);
+    border: none;
+}
+#form > input:focus{
+    outline: none;
 }
 #form > select {
-    font-size: 18px;
+    font-size: 20px;
+    background-color: var(--dark-color);
+    color: var(--bright-color);
+    border: none;
+}
+#form #submit_exp_btn {
+    cursor: pointer;
+    background-color: var(--bright-color);
+    color: var(--dark-color);
+    text-align: center;
+    font-size: 24px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+#form #submit_exp_btn:hover {
+    background-color: hsl(200, 100%, 70%);
 }
