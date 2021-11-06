@@ -1,3 +1,5 @@
+import {PERIOD} from "./main";
+
 const CATEGORY = {
     FOOD: 0,
     UTILITIES: 1,
@@ -94,18 +96,11 @@ function timeTotal(period) {
     return totalSpent;
 }
 
-const PERIOD = {
-    DAY: 0,
-    WEEK: 1,
-    MONTH: 2
-}
-
-function calculateReport () {
-    var arraySpending = [typeTotal(CATEGORY.FOOD), typeTotal(CATEGORY.UTILITIES), typeTotal(CATEGORY.ENTERTAINMENT), typeTotal(CATEGORY.CUSTOM)];
+function calculateReport (period) {
+    var arraySpending = [timeTypeTotal(CATEGORY.FOOD, period), timeTypeTotal(CATEGORY.UTILITIES, period), timeTypeTotal(CATEGORY.ENTERTAINMENT, period), timeTypeTotal(CATEGORY.CUSTOM, period)];
     var totalSpent = total();
     var average = totalSpent/4;
-    
-    return totalSpent, min.array, max.array, average;
+    return totalSpent, Math.min.apply(Math, arraySpending), Math.max.apply(Math, arraySpending), average;
 }
 
 function userGuessAmount (totalSpent,maxCategory, minCategory, average, budget){
