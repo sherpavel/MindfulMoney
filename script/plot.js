@@ -1,4 +1,4 @@
-import {} from "./budget";
+import {typeTotal} from "./budget";
 
 var data = [{
     values: [typeTotal(CATEGORY.FOOD),typeTotal(CATEGORY.UTILITIES),typeTotal(CATEGORY.ENTERTAINMENT),typeTotal(CATEGORY.CUSTOM)],

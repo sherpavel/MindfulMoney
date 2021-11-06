@@ -43,7 +43,7 @@ function total() {
     return totalSpent;
 }
 
-function typeTotal(type) {
+export function typeTotal(type) {
     var totalSpent = 0;
     expenses.forEach(data => {
         if(data.type == type) {
