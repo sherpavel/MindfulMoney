@@ -1,0 +1,50 @@
+:root {
+    --black-color: rgb(20, 20, 20); 
+    --dark-color: rgb(38, 38, 43);
+    --dark-grey-color: rgb(64, 64, 75);
+    --hint-color: rgb(128, 128, 128);
+    --mid-color: rgb(180, 180, 180);
+    --bright-color: rgb(230, 230, 230);
+
+    --mono-dark-color: #2f2f45;
+
+    --radius: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    color: var(--bright-color);
+    background-color: var(--bright-color);
+    margin: 0;
+    overflow: auto;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+section {
+    position: relative;
+    max-width: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 20px;
+    box-shadow: 0 0 10px 0px var(--dark-color);
+
+    background-color: var(--dark-color);
+
+    border-radius: 1rem;
+
+    margin: 1em 0 1em 0;
+    padding: 1rem;
+}
+section > h1 {
+    text-align: left;
+}
