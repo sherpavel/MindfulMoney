@@ -5,32 +5,27 @@ const Category = {
     CUSTOM: 3,
 }
 
-class AmountData {
-    constructor() {
-        this.data = [];
-    }
-
-    add(value) {
-        this.data[Date.now()] = value;
-    }
-
-    total() {
-        
-    }
-
-    weeklyTotal() {
-
-    }
-
-    monthlyTotal() {
-        
+class Expense {
+    constructor(time, value, type) {
+        this.time = time;
+        this.value = value;
+        this.type = type;
     }
 }
+let expenses = [];
 
-class Food {
-    constructor() {
-        this.amountData = new AmountData();
-        this.budget = 0;
-        this.category = Category.FOOD;
-    }
+function add(time, value, type) {
+    expenses.push(new Expense(time, value, type));
+}
+
+function total() {
+        
+}
+
+function weeklyTotal() {
+
+}
+
+function monthlyTotal() {
+    
 }

@@ -9,22 +9,20 @@ window.onload = () => {
     main();
 }
 
-function main() {
-    let testArray = {
-
-    };
-
-
-    let f = new Food();
-    f.amountData.add(10);
-    console.log(f);
-}
 
 const PERIOD = {
     DAY: 0,
     WEEK: 1,
     MONTH: 2
 }
+let CRT_PERIOD = PERIOD.DAY;
+
+function main() {
+    let testArray = [
+        new Food(), new Food()
+    ];
+}
+
 function setPeriod(period) {
     switch (period) {
         case PERIOD.DAY: {
