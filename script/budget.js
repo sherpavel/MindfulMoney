@@ -1,4 +1,4 @@
-const Category = {
+const CATEGORY = {
     FOOD: 0,
     UTILITIES: 1,
     ENTERTAINMENT: 2,
@@ -51,28 +51,51 @@ function typeTotal(type) {
     return totalSpent;
 }
 
-function monthlyTypeTotal(type) {
-    var date = new Date();
-    var month = date.getMonth();
+function getStartDate(period) {
+    var today = new Date();
+    switch (period) {
+        case PERIOD.DAY: {
+            var start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+            return start;
+        }
+        case PERIOD.WEEK: {
+            var sunday = today.getDate() - today.getDay();
+            var start = new Date(today.getFullYear(), today.getMonth(), sunday);
+            return start;
+        }
+        case PERIOD.MONTH: {
+            var start = new Date(today.getFullYear(), today.getMonth(), 1);
+            return start;
+        }
+    }
+}
+
+function timeTypeTotal(type, period) {
     var totalSpent = 0;
+    var start = getStartDate(period);
     expenses.forEach(data => {
-        var d = new Date(data.time);
-        if(d.getMonth() == month && data.type == type) {
+        var date = new Date(data.time);
+        if(date >= start && data.type == type) {
             totalSpent += data.value;
         }
     })
     return totalSpent;
 }
 
-function monthlyTotal() {
-    var date = new Date();
-    var month = date.getMonth();
+function timeTotal(period) {
     var totalSpent = 0;
+    var start = getStartDate(period);
     expenses.forEach(data => {
-        var d = new Date(data.time);
-        if(d.getMonth() == month) {
+        var date = new Date(data.time);
+        if(date >= start) {
             totalSpent += data.value;
         }
     })
     return totalSpent;
+}
+
+const PERIOD = {
+    DAY: 0,
+    WEEK: 1,
+    MONTH: 2
 }
