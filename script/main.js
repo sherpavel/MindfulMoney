@@ -1,4 +1,11 @@
+let isMobile = false;
+
+window.onresize = () => {
+    isMobile = document.body.clientWidth < 700;
+}
+
 window.onload = () => {
+    isMobile = document.body.clientWidth < 700;
     main();
 }
 
@@ -14,18 +21,38 @@ function main() {
 
     };
 
-    testArray.forEach(budget => {
 
-    });
+    let f = Food.amountData.add(0);
 }
 
+const PERIOD = {
+    DAY: 0,
+    WEEK: 1,
+    MONTH: 2
+}
+function setPeriod(period) {
+    switch (period) {
+        case PERIOD.DAY: {
+            console.log("Day");
+            break;
+        }
+        case PERIOD.WEEK: {
+            console.log("Week");
+            break;
+        }
+        case PERIOD.MONTH: {
+            console.log("Month");
+            break;
+        }
+    }
+}
 
-function showBudget(obj) {
-    let JBudget = $("<div>");
+function showExpense(obj) {
+    let JExpense = $("<div>");
 
     let icon = $("img");
 
 
 
-    return JBudget;
+    return JExpense;
 }

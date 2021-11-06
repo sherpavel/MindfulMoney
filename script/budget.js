@@ -1,7 +1,8 @@
 const Category = {
     FOOD: 0,
     UTILITIES: 1,
-    ENTERTAINMENT: 2
+    ENTERTAINMENT: 2,
+    CUSTOM: 3,
 }
 
 class AmountData {
@@ -10,7 +11,7 @@ class AmountData {
     }
 
     add(value) {
-        data[Date.getTime()] = value;
+        this.data[Date.now()] = value;
     }
 
     total() {
