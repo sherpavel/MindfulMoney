@@ -38,6 +38,7 @@ window.onload = () => {
         $("#main").addClass("blur");
         $("#overlay").addClass("show");
         $("#add_exp").css("filter", "opacity(0.2)");
+        document.getElementById('exp_date_input').valueAsDate = new Date();
     });
     function closeForm() {
         showAddForm = false;
@@ -50,9 +51,11 @@ window.onload = () => {
     $("#submit_exp_btn").on("click", () => {
         let name = $("#exp_name_input").val();
         let value = parseFloat($("#exp_value_input").val());
+        let date = $("#exp_date_input").val().split("-");
         let type = parseInt($("#exp_type_input").val());
         if (checkInput(name, 1, 20) && (value != NaN) && (type != NaN)) {
-            EXP_ARRAY.push(new Expense(Date.now(), value, type, name));
+            console.log(name, value, type);
+            EXP_ARRAY.push(new Expense(new Date(parseInt(date[0]), parseInt(date[1]-1), parseInt(date[2])).getTime(), value, type, name));
             updateTotal();
             reBuildList();
             closeForm();
