@@ -59,8 +59,8 @@ function getStartDate(period) {
             return start;
         }
         case PERIOD.WEEK: {
-            var sunday = today.getDate() - today.getDay();
-            var start = new Date(today.getFullYear(), today.getMonth(), sunday);
+            var day = today.getDate() - 6;
+            var start = new Date(today.getFullYear(), today.getMonth(), day);
             return start;
         }
         case PERIOD.MONTH: {
@@ -89,6 +89,7 @@ function timeTotal(period) {
         var date = new Date(data.time);
         if(date >= start) {
             totalSpent += data.value;
+            console.log(data.name)
         }
     })
     return totalSpent;
