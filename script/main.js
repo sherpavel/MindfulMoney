@@ -62,6 +62,8 @@ window.onload = () => {
     });
 
     reBuildList();
+
+    initPlot();
 }
 function reBuildList() {
     $(".expense").remove();
