@@ -1,5 +1,5 @@
 function calculateReport () {
-    var arraySpending = [typeTotal(Category.FOOD), typeTotal(Category.UTILITIES), typeTotal(Category.ENTERTAINMENT), typeTotal(Category.CUSTOM)];
+    var arraySpending = [typeTotal(CATEGORY.FOOD), typeTotal(CATEGORY.UTILITIES), typeTotal(CATEGORY.ENTERTAINMENT), typeTotal(CATEGORY.CUSTOM)];
     var totalSpent = total();
     var average = totalSpent/4;
     

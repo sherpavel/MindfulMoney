@@ -20,13 +20,14 @@
 
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 
     padding: 1rem;
     border-radius: var(--radius);
 }
-#form > h2 {
+#form > h1 {
     margin: 0 0 1rem 0;
+    text-align: center;
 }
 #form > img {
     position: absolute;
@@ -39,29 +40,40 @@
     cursor: pointer;
 }
 #form > input {
-    font-size: 20px;
+    font-size: 28px;
     background-color: var(--dark-color);
     color: var(--bright-color);
     border: none;
+    padding: 5px;
+    border-radius: 5px;
 }
 #form > input:focus{
-    outline: none;
+    outline: solid var(--light-blue);
 }
 #form > select {
-    font-size: 20px;
-    background-color: var(--dark-color);
+    font-size: 28px;
+    font-family: inherit;
+    background-color: var(--dark-grey-color);
     color: var(--bright-color);
     border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+}
+#form > select:focus {
+    outline: solid var(--light-blue);
 }
 #form #submit_exp_btn {
     cursor: pointer;
     background-color: var(--bright-color);
     color: var(--dark-color);
     text-align: center;
-    font-size: 24px;
+    font-size: 32px;
     border-radius: 10px;
+    padding: 5px 0 5px 0;
     transition: background-color 0.3s ease;
 }
 #form #submit_exp_btn:hover {
-    background-color: hsl(200, 100%, 70%);
+    background-color: var(--light-blue);
 }

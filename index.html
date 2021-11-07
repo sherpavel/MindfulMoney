@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="style/index.css">
     <link rel="stylesheet" href="style/expenses.css">
     <link rel="stylesheet" href="style/form.css">
+    <link rel="stylesheet" href="style/plot.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
     <script src="./script/budget.js"></script>
     <script src="./script/main.js"></script>
-    <script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
+    <script src="./script/plot.js"></script>
+    <script src="./script/utilities.js"></script>
 
     <title>Mindful Money</title>
 </head>
@@ -23,14 +26,23 @@
             <img src="resources/Website_Logo.png" alt="">
         </div>
         <section id="total">
-            <h1>Total <span id="periodText">daily</span> expenses</h1>
-            <div id=""></div>
+            <div id="total_top">
+                <select name="type" id="period_select">
+                    <option value=0>Daliy</option>
+                    <option value=1 selected>Weekly</option>
+                    <option value=2>Monthly</option>
+                </select>
+                <h1>total expenses</h1>
+            </div>
+            <div id="total_spent">
+                <p>
+                    $<span id="total_textbox">0</span>
+                </p>
+            </div>
         </section>
     
         <section id="chart">
             <h1>Chart</h1>
-            <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
-            <!--if everything gets messed up this is where it happened-->
         </section>
     
         <section id="list">
@@ -47,7 +59,7 @@
 
     <div id="overlay">
         <div id="form">
-            <h2>Add new item</h2>
+            <h1>Add new item</h1>
             <img src="resources/close_icon.svg" alt="X" id="close_form_btn">
             <input type="text" id="exp_name_input" placeholder="name">
             <input type="number" id="exp_value_input" placeholder="$0">
