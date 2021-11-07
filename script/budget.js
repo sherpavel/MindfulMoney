@@ -102,7 +102,7 @@ function calculateReport (period) {
     var average = totalSpent/4;
     return totalSpent, Math.min.apply(Math, arraySpending), Math.max.apply(Math, arraySpending), average;
 }
-
+// can delete the conditionals in this, just keep the values for summary stats to appear in the summary when user presses said button
 function userGuessAmount (totalSpent,maxCategory, minCategory, average, budget){
     var userGuess = prompt("Guess how much you spent this month!") // this will implement some sort of get user input, can take it out if needed
     if (userGuess == totalSpent){ // user guesses the amount they spent correctly
