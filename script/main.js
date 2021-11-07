@@ -114,6 +114,7 @@ function loadItems() {
 function updateTotal() {
     CRT_PERIOD = parseInt(periodSelect.val());
     $("#total_textbox").text(timeTotal(CRT_PERIOD));
+    drawChart();
 }
 
 function showExpense(exp) {

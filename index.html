@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="style/mobile.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
     <script src="./script/budget.js"></script>
     <script src="./script/main.js"></script>
     <script src="./script/plot.js"></script>
     <script src="./script/utilities.js"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
 
     <title>Mindful Money</title>
 </head>
@@ -30,7 +30,7 @@
         <section id="total">
             <div id="total_top">
                 <select name="type" id="period_select">
-                    <option value=0>Daliy</option>
+                    <option value=0>Today</option>
                     <option value=1 selected>Weekly</option>
                     <option value=2>Monthly</option>
                 </select>
@@ -44,7 +44,7 @@
         </section>
     
         <section id="chart">
-            <h1>Chart</h1>
+            <!-- <h1>Chart</h1> -->
             <div id="piechart"></div>
         </section>
     
