@@ -63,7 +63,6 @@
         padding: 0.5rem;
         border-radius: 0 var(--radius) 0 var(--radius);
         width: 20px;
-        background-color: hsl(0, 60%, 40%);
     }
     #form > input, #form select {
         font-size: 20px;

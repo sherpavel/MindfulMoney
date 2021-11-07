@@ -45,6 +45,9 @@ window.onload = () => {
         $("#main").removeClass("blur");
         $("#overlay").removeClass("show");
         $("#add_exp").removeAttr("style");
+        $("#exp_name_input").val("");
+        $("#exp_value_input").val("");
+        $("#exp_type_input").val("");
     }
     $(close_form_btn).on("click", closeForm);
     // Form submit
@@ -53,8 +56,7 @@ window.onload = () => {
         let value = parseFloat($("#exp_value_input").val());
         let date = $("#exp_date_input").val().split("-");
         let type = parseInt($("#exp_type_input").val());
-        if (checkInput(name, 1, 20) && (value != NaN) && (type != NaN)) {
-            console.log(name, value, type);
+        if (checkInput(name, 1, 20) && !isNaN(value) && !isNaN(type)) {
             EXP_ARRAY.push(new Expense(new Date(parseInt(date[0]), parseInt(date[1]-1), parseInt(date[2])).getTime(), value, type, name));
             updateTotal();
             reBuildList();
@@ -168,6 +170,6 @@ function showExpense(exp) {
 
 // Misc
 function checkInput(str, minLength, maxLength) {
-    return (/^[0-9a-zA-Z]+$/.test(str))
+    return (/^[0-9a-zA-Z ]+$/.test(str))
         && (str.length >= minLength && str.length <= maxLength);
 }
