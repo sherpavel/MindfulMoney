@@ -89,7 +89,6 @@ function timeTotal(period) {
         var date = new Date(data.time);
         if(date >= start) {
             totalSpent += data.value;
-            console.log(data.name)
         }
     })
     return totalSpent;
