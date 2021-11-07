@@ -70,9 +70,6 @@ section > h1 {
     margin: 0 0 1rem 0;
 }
 
-#total_top {
-    /* text-align: center; */
-}
 #total_top > h1 {
     display: inline;
 }
@@ -89,9 +86,6 @@ section > h1 {
     padding: 2px;
     cursor: pointer;
 }
-#total #period_select:hover {
-    color: var(--light-blue);
-}
 #total #total_spent {
     text-align: center;
 }
@@ -103,4 +97,10 @@ section > h1 {
 
 #list {
     min-height: 100px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    #total #period_select:hover {
+        color: var(--light-blue);
+    }
 }

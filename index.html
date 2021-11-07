@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style/expenses.css">
     <link rel="stylesheet" href="style/form.css">
     <link rel="stylesheet" href="style/plot.css">
+    <link rel="stylesheet" href="style/mobile.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
@@ -43,6 +44,7 @@
     
         <section id="chart">
             <h1>Chart</h1>
+            <div id="piechart"></div>
         </section>
     
         <section id="list">
@@ -63,6 +65,7 @@
             <img src="resources/close_icon.svg" alt="X" id="close_form_btn">
             <input type="text" id="exp_name_input" placeholder="name">
             <input type="number" id="exp_value_input" placeholder="$0">
+
             <select name="type" id="exp_type_input">
                 <option disabled selected value>Select type</option>
                 <option value=0>Food</option>

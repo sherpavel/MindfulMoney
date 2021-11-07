@@ -1,0 +1,75 @@
+@media only screen and (max-width: 600px) {
+    body {
+        width: 100%;
+        left: 0;
+        box-shadow: none;
+        left: 0;
+        transform: none;
+    }
+
+    section {
+        border-radius: 0;
+        padding: 10px;
+    }
+    section > h1 {
+        font-size: 24px;
+    }
+
+    #total_top > h1 {
+        font-size: 22px;
+    }
+    #total #period_select {
+        font-size: 22px;
+        padding: 5px;
+    }
+    #total #total_spent > p {
+        font-size: 40px;
+    }
+
+    .expense {
+        font-size: 18px;
+    }
+    .expense > .type_ico {
+        flex-basis: 36px;
+    }
+    .right_box > .exp_price {
+        font-size: 20px;
+    }
+    .right_box > .delete_ico {
+        flex-basis: 30px;
+        width: 30px;
+    }
+
+    #add_btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    #form {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        gap: 10px;
+    }
+    #form > h1 {
+        font-size: 28px;
+    }
+    #form > img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0.5rem;
+        border-radius: 0 var(--radius) 0 var(--radius);
+        width: 20px;
+        background-color: hsl(0, 60%, 40%);
+    }
+    #form > input, #form select {
+        font-size: 20px;
+    }
+    #form > #submit_exp_btn {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+}

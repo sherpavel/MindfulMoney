@@ -74,6 +74,9 @@
     padding: 5px 0 5px 0;
     transition: background-color 0.3s ease;
 }
-#form #submit_exp_btn:hover {
-    background-color: var(--light-blue);
+
+@media (hover: hover) and (pointer: fine) {
+    #form #submit_exp_btn:hover {
+        background-color: var(--light-blue);
+    }
 }

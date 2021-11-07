@@ -56,9 +56,6 @@
 .right_box > .delete_ico > img {
     filter: saturate(1.2);
 }
-.right_box > .delete_ico:hover {
-    background-color: var(--dark-grey-color);
-}
 
 /* Add expenses */
 #add_exp {
@@ -84,6 +81,12 @@
     height: 100%;
 }
 
-#add_btn:hover {
-    background-color: var(--bright-color);
+@media (hover: hover) and (pointer: fine) {
+    .right_box > .delete_ico:hover {
+        background-color: var(--dark-grey-color);
+    }
+    
+    #add_btn:hover {
+        background-color: var(--bright-color);
+    }
 }

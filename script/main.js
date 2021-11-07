@@ -12,6 +12,7 @@ const PERIOD = {
 let CRT_PERIOD = PERIOD.DAY;
 
 let expRoot;
+let periodSelect;
 let showAddForm = false;
 EXP_ARRAY = [
     // new Expense(Date.now(), 100, CATEGORY.FOOD, "Spicy 9"),
@@ -52,6 +53,7 @@ window.onload = () => {
         let type = parseInt($("#exp_type_input").val());
         if (checkInput(name, 1, 20) && (value != NaN) && (type != NaN)) {
             EXP_ARRAY.push(new Expense(Date.now(), value, type, name));
+            updateTotal();
             reBuildList();
             closeForm();
             saveItems();
@@ -67,13 +69,9 @@ window.onload = () => {
     reBuildList();
 
     // Change period
-    let periodSelect = $("#period_select");
-    CRT_PERIOD = parseInt(periodSelect.val());
-    $("#total_textbox").text(timeTotal(CRT_PERIOD));
-    periodSelect.change(() => {
-        CRT_PERIOD = parseInt(periodSelect.val());
-        $("#total_textbox").text(timeTotal(CRT_PERIOD));
-    });
+    periodSelect = $("#period_select");
+    updateTotal();
+    periodSelect.change(updateTotal);
 }
 
 function reBuildList() {
@@ -110,10 +108,15 @@ function loadItems() {
     });
 }
 
-let resPath = "resources/";
-function showExpense(exp) {
-    let JExpense = $("<div>").addClass("expense");
+function updateTotal() {
+    CRT_PERIOD = parseInt(periodSelect.val());
+    $("#total_textbox").text(timeTotal(CRT_PERIOD));
+}
 
+function showExpense(exp) {
+    const resPath = "resources/";
+
+    let JExpense = $("<div>").addClass("expense");
 
     let icon = "";
     switch (exp.type) {
@@ -148,6 +151,7 @@ function showExpense(exp) {
     delBtn.on("click", () => {
         EXP_ARRAY.splice(EXP_ARRAY.indexOf(exp), 1);
         reBuildList();
+        updateTotal();
     });
     rightBox.append(delBtn);
 
