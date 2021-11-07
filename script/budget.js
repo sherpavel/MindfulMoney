@@ -27,15 +27,15 @@ class Expense {
     }
 }
 
-let expenses = [];
+let EXP_ARRAY = [];
 
 function add(time, value, type, name) {
-    expenses.push(new Expense(time, value, type, name));
+    EXP_ARRAY.push(new Expense(time, value, type, name));
 }
 
 function total() {
     var totalSpent = 0;
-    expenses.forEach(data => {
+    EXP_ARRAY.forEach(data => {
         totalSpent += data.value;
     })
     return totalSpent;
@@ -43,7 +43,7 @@ function total() {
 
 function typeTotal(type) {
     var totalSpent = 0;
-    expenses.forEach(data => {
+    EXP_ARRAY.forEach(data => {
         if(data.type == type) {
             totalSpent += data.value;
         }
@@ -73,7 +73,7 @@ function getStartDate(period) {
 function timeTypeTotal(type, period) {
     var totalSpent = 0;
     var start = getStartDate(period);
-    expenses.forEach(data => {
+    EXP_ARRAY.forEach(data => {
         var date = new Date(data.time);
         if(date >= start && data.type == type) {
             totalSpent += data.value;
@@ -85,7 +85,7 @@ function timeTypeTotal(type, period) {
 function timeTotal(period) {
     var totalSpent = 0;
     var start = getStartDate(period);
-    expenses.forEach(data => {
+    EXP_ARRAY.forEach(data => {
         var date = new Date(data.time);
         if(date >= start) {
             totalSpent += data.value;
