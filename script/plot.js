@@ -1,6 +1,6 @@
-src="https://www.gstatic.com/charts/loader.js%22%3E"
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+src="https://www.gstatic.com/charts/loader.js"
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
 
 function initPlot() {
     // var data = [{
@@ -26,6 +26,7 @@ function initPlot() {
 
     var options = {
         title: 'Spending Report',
+        pieHole: 0.4,
         colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f']
     };
 
