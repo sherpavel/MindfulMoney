@@ -14,18 +14,17 @@ let CRT_PERIOD = PERIOD.DAY;
 let expRoot;
 let showAddForm = false;
 EXP_ARRAY = [
-    // new Expense(Date.now(), 100, CATEGORY.FOOD, "qwe"),
-    // new Expense(Date.now()-1000000000, 200, CATEGORY.UTILITIES, "asd"),
-    // new Expense(Date.now()-10000000000, 300, CATEGORY.ENTERTAINMENT, "zxc"),
-    // new Expense(Date.now()-10000000000, 300, CATEGORY.CUSTOM, "ghj"),
-    // new Expense(Date.now(), 100, CATEGORY.FOOD, "qwe"),
-    // new Expense(Date.now()-1000000000, 200, CATEGORY.UTILITIES, "asd"),
-    // new Expense(Date.now()-10000000000, 300, CATEGORY.ENTERTAINMENT, "zxc"),
-    // new Expense(Date.now()-10000000000, 300, CATEGORY.CUSTOM, "ghj"),
-    // new Expense(Date.now(), 100, CATEGORY.FOOD, "qwe"),
-    // new Expense(Date.now()-1000000000, 200, CATEGORY.UTILITIES, "asd"),
-    // new Expense(Date.now()-10000000000, 300, CATEGORY.ENTERTAINMENT, "zxc"),
-    // new Expense(Date.now()-10000000000, 300, CATEGORY.CUSTOM, "ghj"),
+    // new Expense(Date.now(), 100, CATEGORY.FOOD, "Spicy 9"),
+    // new Expense(Date.now()-2*(24*60*60*1000), 60, CATEGORY.FOOD, "Some food"),
+    // new Expense(Date.now()-20*(24*60*60*1000), 80, CATEGORY.FOOD, "Some food"),
+    // new Expense(Date.now()-25*(24*60*60*1000), 120, CATEGORY.FOOD, "Market"),
+
+    // new Expense(Date.now()-1*(24*60*60*1000), 20, CATEGORY.UTILITIES, "Payment"),
+    // new Expense(Date.now()-29*(24*60*60*1000), 20, CATEGORY.UTILITIES, "Payment"),
+    // new Expense(Date.now()-63*(24*60*60*1000), 20, CATEGORY.UTILITIES, "Payment"),
+
+    // new Expense(Date.now()-4*(24*60*60*1000), 20, CATEGORY.ENTERTAINMENT, "Movies"),
+    // new Expense(Date.now()-7*(24*60*60*1000), 8, CATEGORY.ENTERTAINMENT, "Movies"),
 ];
 window.onload = () => {
     isMobile = document.body.clientWidth < 700;
@@ -37,17 +36,15 @@ window.onload = () => {
         showAddForm = true;
         $("#main").addClass("blur");
         $("#overlay").addClass("show");
+        $("#add_exp").css("filter", "opacity(0.2)");
     });
     function closeForm() {
         showAddForm = false;
         $("#main").removeClass("blur");
         $("#overlay").removeClass("show");
+        $("#add_exp").removeAttr("style");
     }
-    $(close_form_btn).on("click", () => {
-        closeForm();
-    });
-
-
+    $(close_form_btn).on("click", closeForm);
     // Form submit
     $("#submit_exp_btn").on("click", () => {
         let name = $("#exp_name_input").val();
@@ -69,8 +66,16 @@ window.onload = () => {
     loadItems();
     reBuildList();
 
-    initPlot();
+    // Change period
+    let periodSelect = $("#period_select");
+    CRT_PERIOD = parseInt(periodSelect.val());
+    $("#total_textbox").text(timeTotal(CRT_PERIOD));
+    periodSelect.change(() => {
+        CRT_PERIOD = parseInt(periodSelect.val());
+        $("#total_textbox").text(timeTotal(CRT_PERIOD));
+    });
 }
+
 function reBuildList() {
     $(".expense").remove();
     EXP_ARRAY.sort((a, b) => {
@@ -105,24 +110,6 @@ function loadItems() {
     });
 }
 
-function setPeriod(period) {
-    let periodText = $("#periodText");
-    switch (period) {
-        case PERIOD.DAY: {
-            periodText.text("daily");
-            break;
-        }
-        case PERIOD.WEEK: {
-            periodText.text("weekly");
-            break;
-        }
-        case PERIOD.MONTH: {
-            periodText.text("monthly");
-            break;
-        }
-    }
-}
-
 let resPath = "resources/";
 function showExpense(exp) {
     let JExpense = $("<div>").addClass("expense");
@@ -149,7 +136,7 @@ function showExpense(exp) {
     textBox.append($("<span>").addClass("exp_text").text(exp.name));
 
     let date = new Date(exp.time);
-    textBox.append($("<p>").addClass("exp_text exp_date").text(date.getMonth() + "/" + date.getDay() + "/" + date.getFullYear()));
+    textBox.append($("<p>").addClass("exp_text exp_date").text((date.getMonth()+1) + "/" + (date.getDate()) + "/" + date.getFullYear()));
     JExpense.append(textBox);
 
     let rightBox = $("<div>").addClass("right_box");
